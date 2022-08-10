@@ -63,6 +63,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - images/zens_aquatic.png
+    - images/list/limbata.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -87,7 +88,7 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-    - family: Quicsand
+    - family: Quicksand
       fonts:
       - asset: fonts/static/Quicksand-Regular.ttf
       - asset: fonts/static/Quicksand-Light.ttf

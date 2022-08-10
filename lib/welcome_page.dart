@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:zens_aquatic/detail_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class WelcomePage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 42,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Qicksand',
+                  fontFamily: 'Quicksand',
                   color: Color.fromARGB(0xFF, 0x8F, 0xE3, 0xCF)),
             ),
           ),
@@ -77,12 +78,17 @@ class WelcomePage extends StatelessWidget {
                     child: Text(
                       'Continue',
                       style: TextStyle(
-                          fontFamily: 'Qiucksand',
+                          fontFamily: 'Quicksand',
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
                           color: Colors.white),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return DetailPage();
+                      }));
+                    },
                   )),
             ),
           ),
