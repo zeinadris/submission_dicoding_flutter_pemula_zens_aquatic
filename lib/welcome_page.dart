@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:zens_aquatic/detail_page.dart';
+import 'package:zens_aquatic/list_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -86,7 +87,7 @@ class WelcomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return DetailPage();
+                        return ListPage();
                       }));
                     },
                   )),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zens_aquatic/detail_page.dart';
+import 'package:zens_aquatic/list_page.dart';
 import 'package:zens_aquatic/welcome_page.dart';
 
 void main() {
