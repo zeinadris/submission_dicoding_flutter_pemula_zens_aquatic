@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zens_aquatic/Package/list_product.dart';
 import 'package:zens_aquatic/detail_page.dart';
 
 class ListPage extends StatelessWidget {
@@ -11,16 +12,19 @@ class ListPage extends StatelessWidget {
         title: Text('List Product Zens Aquatic'),
       ),
       body: SafeArea(
-        child: GridView.count(
-            // Create a grid with 2 columns. If you change the scrollDirection to
-            // horizontal, this produces 2 rows.
-            crossAxisCount: 2,
-            // Generate 100 widgets that display their index in the List.
-            children: <Widget>[
-              InkWell(
+        child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                childAspectRatio: 3 / 3,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5),
+            itemCount: listProductList.length,
+            itemBuilder: (BuildContext ctx, index) {
+              final ListProduct listProduct = listProductList[index];
+              return InkWell(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return DetailPage();
+                    return DetailPage(listProduct: listProduct);
                   }));
                 },
                 child: Card(
@@ -29,7 +33,7 @@ class ListPage extends StatelessWidget {
                     child: Stack(
                       children: <Widget>[
                         Image.asset(
-                          'images/list/limbata.jpg',
+                          listProduct.imageAssets,
                           fit: BoxFit.cover,
                         ),
                         Positioned(
@@ -39,8 +43,8 @@ class ListPage extends StatelessWidget {
                               width: 100,
                               color: Colors.black54,
                               padding: const EdgeInsets.all(10),
-                              child: const Text(
-                                'Channa Limbata',
+                              child: Text(
+                                listProduct.name,
                                 style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,
@@ -51,74 +55,8 @@ class ListPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-              Card(
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(
-                      'images/list/limbata.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                        width: 100,
-                        height: 50,
-                        child: Container(
-                          width: 100,
-                          color: Colors.black54,
-                          padding: const EdgeInsets.all(10),
-                          child: const Text(
-                            'I Like Potatoes And Oranges',
-                            style: TextStyle(fontSize: 10, color: Colors.white),
-                          ),
-                        ))
-                  ],
-                ),
-              ),
-              Card(
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(
-                      'images/list/limbata.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                        width: 100,
-                        height: 50,
-                        child: Container(
-                          width: 100,
-                          color: Colors.black54,
-                          padding: const EdgeInsets.all(10),
-                          child: const Text(
-                            'I Like Potatoes And Oranges',
-                            style: TextStyle(fontSize: 10, color: Colors.white),
-                          ),
-                        ))
-                  ],
-                ),
-              ),
-              Card(
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(
-                      'images/list/limbata.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                        width: 100,
-                        height: 50,
-                        child: Container(
-                          width: 100,
-                          color: Colors.black54,
-                          padding: const EdgeInsets.all(10),
-                          child: const Text(
-                            'I Like Potatoes And Oranges',
-                            style: TextStyle(fontSize: 10, color: Colors.white),
-                          ),
-                        )),
-                  ],
-                ),
-              )
-            ]),
+              );
+            }),
       ),
     );
   }

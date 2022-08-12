@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:zens_aquatic/Package/list_product.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final ListProduct listProduct;
+  const DetailPage({Key? key, required this.listProduct}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class DetailPage extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.all(20),
                       child: Text(
-                        'Channa Limbata',
+                        listProduct.name,
                         style: TextStyle(
                             fontFamily: 'Quicksand',
                             fontSize: 24,
@@ -52,7 +54,7 @@ class DetailPage extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 10, left: 10),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.asset('images/list/limbata.jpg'),
+                    child: Image.asset(listProduct.imageAssets),
                   ),
                 ),
                 Card(
@@ -60,7 +62,7 @@ class DetailPage extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     child: Text(
-                      'Bogo (Channa limbata) adalah sejenis ikan air tawar anggota suku Channidae (kerabat gabus). Dahulu digolongkan ke dalam spesies Channa gachua, ikan buas ini menyebar luas di Asia Tenggara hingga Indonesia. Bertubuh relatif kecil, dalam bahasa Inggris ikan ini dikenal dengan nama umum Dwarf snakehead.',
+                      listProduct.description,
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
@@ -80,7 +82,7 @@ class DetailPage extends StatelessWidget {
                               color: Colors.white,
                               size: 40,
                             ),
-                            Text(' : Rp 100.000',
+                            Text(listProduct.price,
                                 style: TextStyle(
                                     fontSize: 32, color: Colors.white))
                           ]),
